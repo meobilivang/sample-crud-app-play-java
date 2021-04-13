@@ -7,6 +7,7 @@ public class Task {
     int id;
     int ownerId;
     String description;
+    String createdAt;
 
     //Test databases
     private static Set<Task> taskTestCollection;
@@ -49,4 +50,6 @@ public class Task {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public void setCreatedAt(String createdAt) { this.createdAt = createdAt; }
 }

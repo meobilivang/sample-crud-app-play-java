@@ -10,6 +10,7 @@ public class User {
     String userName;
     protected String password;
     String email;
+    String createdAt;
 
     //Test databases
     private static Set<User> userTestCollection;
@@ -29,6 +30,13 @@ public class User {
         this.email = email;
     }
 
+    public User(int id, String fullName, String userName, String email) {
+        this.id = id;
+        this.fullName = fullName;
+        this.userName = userName;
+        this.email = email;
+    }
+
     public User(int id, String fullName, String userName, String password, String email) {
         this.id = id;
         this.fullName = fullName;
@@ -44,6 +52,8 @@ public class User {
     public String getUserName() {
         return userName;
     }
+
+    public String getPassword() { return password; }
 
     public int getId() {
         return id;
@@ -63,5 +73,9 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 }
