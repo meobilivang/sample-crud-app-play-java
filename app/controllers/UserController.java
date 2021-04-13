@@ -5,17 +5,13 @@ import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.*;
 
-import javax.inject.Inject;
 
 /***
  * Controllers for Views of User
  *
  */
 public class UserController extends Controller {
-
-    @Inject
-    FormFactory formFactory;
-
+    
 //    /**
 //     * Get an User by Id
 //     * @param id

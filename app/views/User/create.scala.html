@@ -8,7 +8,7 @@
     <body>
 
         <h1>Create User</h1>
-        @helper.form(action = routes.UserController.create()){
+            @helper.form(action = routes.UserController.create()){
             @helper.inputText(userForm("name"))
             @helper.inputText(userForm("userName"))
             @helper.inputText(userForm("password"))

@@ -8,12 +8,10 @@ import views.html.index;
 
 import views.html.Home.*;
 
-import javax.inject.Inject;
-
 public class HomeController extends Controller {
 
     public Result index () {
-        return ok("Your Project is hereee!");
+        return ok(views.html.index.render());
     }
 
     /**
