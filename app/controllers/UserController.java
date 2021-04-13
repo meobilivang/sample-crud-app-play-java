@@ -8,7 +8,7 @@ import play.mvc.*;
 import javax.inject.Inject;
 
 /***
- *
+ * Controllers for Views of User
  *
  */
 public class UserController extends Controller {
@@ -16,20 +16,20 @@ public class UserController extends Controller {
     @Inject
     FormFactory formFactory;
 
-    /**
-     * Get an User by Id
-     * @param id
-     * @return
-     */
-    public Result getUserById(int id) {
-        return ok("User with ID: " + id);
-    }
+//    /**
+//     * Get an User by Id
+//     * @param id
+//     * @return
+//     */
+//    public Result get(int id) {
+//        return ok();
+//    }
 
     /**
      * Get list of users
      * @return
      */
-    public Result getUserList() {
+    public Result list() {
         return null;
     }
 
@@ -37,30 +37,25 @@ public class UserController extends Controller {
      * Create new User
      * @return
      */
-    public Result createUser() {
-        Form<User> userForm = formFactory.form(User.class);
-        return ok(createUser.render(userForm));
-    }
-
-    public Result saveUser() {
-
+    public Result create() {
+        return null;
     }
 
     /**
      * Edit User
      * @return
      */
-    public Result updateUser() {
+    public Result edit() {
         return null;
     }
 
-    /**
-     * Delete User
-     * @param deletedUserId
-     * @return
-     */
-    public Result deleteUser(int deletedUserId) {
-        return null;
-    }
+//    /**
+//     * Delete User
+//     * @param deletedUserId
+//     * @return
+//     */
+//    public Result deleteUser(int deletedUserId) {
+//        return null;
+//    }
 
 }

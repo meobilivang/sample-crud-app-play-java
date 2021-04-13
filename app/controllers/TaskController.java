@@ -2,14 +2,33 @@ package controllers;
 
 import play.mvc.*;
 
+/**
+ * Controllers for Views of Task
+ */
 public class TaskController extends Controller {
 
+//    /**
+//     * Get a Task by Id
+//     * @param id
+//     * @return
+//     */
+//    public Result get(int id) {
+//        return null;
+//    }
+
     /**
-     * Get a Task by Id
-     * @param id
+     *
      * @return
      */
-    public Result getTaskById(int id) {
+    public Result list() {
+
+        return null;
+    }
+
+    /**
+     *
+     */
+    public Result create() {
         return null;
     }
 
@@ -17,40 +36,17 @@ public class TaskController extends Controller {
      *
      * @return
      */
-    public Result getTaskList() {
+    public Result edit() {
         return null;
     }
 
-    /**
-     *
-     */
-    public Result createTask() {
-        return null;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public Result saveTask() {
-        return null;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public Result updateTask() {
-        return null;
-    }
-
-    /**
-     * Delete Task by id
-     * @param deletedTaskId
-     * @return
-     */
-    public Result deleteTask(int deletedTaskId) {
-        return null;
-    }
+//    /**
+//     * Delete Task by id
+//     * @param deletedTaskId
+//     * @return
+//     */
+//    public Result delete(int deletedTaskId) {
+//        return null;
+//    }
 
 }

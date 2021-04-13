@@ -8,18 +8,18 @@ GET     /                           controllers.HomeController.index()
 GET  /hello-world/:name/:userName   controllers.HomeController.helloWorld(name: String, userName: String)
 
 # User Routes
-GET /users                          controllers.UserController.getUserList
-GET /users/:id                      controllers.UserController.getUserById(id: Int)
+GET /users                          controllers.UserController.list()
+#GET /users/:id                     controllers.UserController.getUserById(id: Int)
 GET /users/create                   controllers.UserController.create()
-GET /users/update                   controllers.UserController.updateUser()
-GET /users/:id                      controllers.UserController.deleteUser(id: Int)
+GET /users/edit                     controllers.UserController.edit()
+#GET /users/:id                     controllers.UserController.deleteUser(id: Int)
 
 #Tasks Routes
-GET /tasks                          controllers.TaskController.getTaskList
-GET /tasks/:id                      controllers.TaskController.getTaskById(id: Int)
-GET /tasks/create                   controllers.TaskController.createTask()
-PUT /tasks/update                   controllers.TaskController.updateTask()
-GET /tasks/:id                      controllers.TaskController.deleteTask(id: Int)
+GET /tasks                          controllers.TaskController.list()
+#GET /tasks/:id                     controllers.TaskController.getTaskById(id: Int)
+GET /tasks/create                   controllers.TaskController.create()
+GET /tasks/edit                     controllers.TaskController.edit()
+#DELETE /tasks/:id                      controllers.TaskController.deleteTask(id: Int)
 
 #API Routes
 #GET /api/users                          controllers.api.UserController.getUserList
