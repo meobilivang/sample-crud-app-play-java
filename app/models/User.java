@@ -6,7 +6,7 @@ import java.util.Set;
 public class User {
 
     int id;
-    String name;
+    String fullName;
     String userName;
     protected String password;
     String email;
@@ -22,16 +22,23 @@ public class User {
 
     public User() {}
 
-    public User(int id, String name, String userName, String password, String email) {
-        //this.id = id;
-        this.name = name;
+    public User(String fullName, String userName, String password, String email) {
+        this.fullName = fullName;
+        this.userName = userName;
+        this.password = password;
+        this.email = email;
+    }
+
+    public User(int id, String fullName, String userName, String password, String email) {
+        this.id = id;
+        this.fullName = fullName;
         this.userName = userName;
         this.password = password;
         this.email = email;
     }
 
     public String getName() {
-        return name;
+        return fullName;
     }
 
     public String getUserName() {

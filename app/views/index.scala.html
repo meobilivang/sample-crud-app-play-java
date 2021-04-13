@@ -1,7 +1,16 @@
-@(message: String)
+@(userForm : Form[User])
+<html>
+    <head>
+        <title>Users Collection</title>
+    </head>
+    <body>
+        <h1>List of Users</h1>
 
-@main("Welcome to Play") {
+@*        @for(user <- users){*@
+@*            <a href="#">@user.id</a>*@
+@*            <p>Name: @user.name</p>*@
+@*            <p>User Name: @user.userName</p>*@
+@*        }*@
 
-    @play20.welcome(message, style = "Java")
-
-}
+    </body>
+</html>

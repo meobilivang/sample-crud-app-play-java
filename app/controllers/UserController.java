@@ -1,12 +1,20 @@
 package controllers;
 
+import models.User;
+import play.data.Form;
+import play.data.FormFactory;
 import play.mvc.*;
+
+import javax.inject.Inject;
 
 /***
  *
  *
  */
 public class UserController extends Controller {
+
+    @Inject
+    FormFactory formFactory;
 
     /**
      * Get an User by Id
@@ -30,7 +38,12 @@ public class UserController extends Controller {
      * @return
      */
     public Result createUser() {
-        return null;
+        Form<User> userForm = formFactory.form(User.class);
+        return ok(createUser.render(userForm));
+    }
+
+    public Result saveUser() {
+
     }
 
     /**

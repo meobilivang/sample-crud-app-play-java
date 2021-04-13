@@ -3,23 +3,38 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.HomeController.index
+GET     /                           controllers.HomeController.index()
 
-GET     /hello-world                controllers.HomeController.helloWorld
+GET  /hello-world/:name/:userName   controllers.HomeController.helloWorld(name: String, userName: String)
 
 # User Routes
-GET /users                          controllers.UserController.getUserList()
+GET /users                          controllers.UserController.getUserList
 GET /users/:id                      controllers.UserController.getUserById(id: Int)
-POST /users/create                  controllers.UserController.createUser()
-PUT /users/update                   controllers.UserController.getUserById()
-DELETE /users/:id                   controllers.UserController.deleteUser(id: Int)
+GET /users/create                   controllers.UserController.create()
+GET /users/update                   controllers.UserController.updateUser()
+GET /users/:id                      controllers.UserController.deleteUser(id: Int)
 
 #Tasks Routes
-GET /tasks                          controllers.TaskController.getTaskList()
+GET /tasks                          controllers.TaskController.getTaskList
 GET /tasks/:id                      controllers.TaskController.getTaskById(id: Int)
-POST /tasks/create                  controllers.TaskController.createTask()
+GET /tasks/create                   controllers.TaskController.createTask()
 PUT /tasks/update                   controllers.TaskController.updateTask()
-DELETE /tasks/:id                   controllers.TaskController.deleteTask(id: Int)
+GET /tasks/:id                      controllers.TaskController.deleteTask(id: Int)
+
+#API Routes
+#GET /api/users                          controllers.api.UserController.getUserList
+#GET /api/users/:id                      controllers.api.UserController.getUserById(id: Int)
+#GET /api/users/create                   controllers.api.UserController.create()
+#PUT /api/users/update                   controllers.api.UserController.updateUser()
+#DELETE /api/users/:id                   controllers.api.UserController.deleteUser(id: Int)
+
+##Tasks Routes
+#GET /api/tasks                          controllers.api.TaskController.getTaskList
+#GET /api/tasks/:id                      controllers.api.TaskController.getTaskById(id: Int)
+#POST /api/tasks/create                  controllers.api.TaskController.createTask()
+#PUT /api/tasks/update                   controllers.api.TaskController.updateTask()
+#DELETE /api/tasks/:id                   controllers.api.TaskController.deleteTask(id: Int)
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

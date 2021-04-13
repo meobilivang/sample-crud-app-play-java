@@ -32,6 +32,14 @@ public class TaskController extends Controller {
      *
      * @return
      */
+    public Result saveTask() {
+        return null;
+    }
+
+    /**
+     *
+     * @return
+     */
     public Result updateTask() {
         return null;
     }
