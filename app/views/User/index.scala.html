@@ -5,10 +5,13 @@
         <title>User List</title>
     </head>
     <body>
-        @*        @for(user <- users){*@
-        @*            <a href="#">@user.id</a>*@
-        @*            <p>Name: @user.name</p>*@
-        @*            <p>User Name: @user.userName</p>*@
-        @*        }*@
+                @for(user <- users){
+                    <a href="#">@user.id</a>
+                    <p>Name: @user.name</p>
+                    <p>User Name: @user.userName</p>
+                    <p>Email: @user.userEmail</p>
+                    <p>Created At: @user.createdAt</p>
+                    <p><button>DELETE</button></p>
+                }
     </body>
 </html>

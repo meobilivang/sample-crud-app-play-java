@@ -1,6 +1,9 @@
 package controllers.api;
 
+import dao.UserDAO;
 import play.mvc.*;
+
+import play.libs.Json;
 
 /**
  * Controllers for User APIs CRUD Operations
@@ -8,6 +11,14 @@ import play.mvc.*;
 public class UserAPIController extends Controller {
 
     public Result get(int id) {
+        try {
+            UserDAO userDAO = new UserDAO();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return internalServerError(Json.toJson());
+        } finally {
+            userDAO.close();
+        }
         return ok("Get");
     }
 
@@ -23,7 +34,7 @@ public class UserAPIController extends Controller {
         return ok();
     }
 
-    public Result delete() {
+    public Result delete(int id) {
         return ok();
     }
 

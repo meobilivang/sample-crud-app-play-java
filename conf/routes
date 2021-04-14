@@ -22,18 +22,18 @@ GET /tasks/edit                     controllers.TaskController.edit()
 #DELETE /tasks/:id                      controllers.TaskController.deleteTask(id: Int)
 
 #API Routes
-#GET /api/users                          controllers.api.UserController.getUserList
-#GET /api/users/:id                      controllers.api.UserController.getUserById(id: Int)
-#GET /api/users/create                   controllers.api.UserController.create()
-#PUT /api/users/update                   controllers.api.UserController.updateUser()
-#DELETE /api/users/:id                   controllers.api.UserController.deleteUser(id: Int)
+GET /api/users                          controllers.api.UserAPIController.list()
+GET /api/users/:id                      controllers.api.UserAPIController.get(id: Int)
+POST /api/users/create                   controllers.api.UserAPIController.create()
+PUT /api/users/edit                     controllers.api.UserAPIController.edit()
+DELETE /api/users/:id                   controllers.api.UserAPIController.delete(id: Int)
 
-##Tasks Routes
-#GET /api/tasks                          controllers.api.TaskController.getTaskList
-#GET /api/tasks/:id                      controllers.api.TaskController.getTaskById(id: Int)
-#POST /api/tasks/create                  controllers.api.TaskController.createTask()
-#PUT /api/tasks/update                   controllers.api.TaskController.updateTask()
-#DELETE /api/tasks/:id                   controllers.api.TaskController.deleteTask(id: Int)
+#Tasks Routes
+GET /api/tasks                          controllers.api.TaskAPIController.list()
+GET /api/tasks/:id                      controllers.api.TaskAPIController.get(id: Int)
+POST /api/tasks/create                  controllers.api.TaskAPIController.create()
+PUT /api/tasks/update                   controllers.api.TaskAPIController.edit()
+DELETE /api/tasks/:id                   controllers.api.TaskAPIController.delete(id: Int)
 
 
 # Map static resources from the /public folder to the /assets URL path
