@@ -63,13 +63,4 @@ public class UserController extends Controller {
         }
     }
 
-//    /**
-//     * Delete User
-//     * @param deletedUserId
-//     * @return
-//     */
-//    public Result deleteUser(int deletedUserId) {
-//        return null;
-//    }
-
 }

@@ -2,17 +2,47 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Available Users in System: </title>
+        <title>User List</title>
     </head>
     <body>
-        @for(user <- users) {
-                <a href="#">@user.getId</a>
-                <p>Name: @user.getFullName</p>
-                <p>User Name: @user.getUserName</p>
-                <p>Email: @user.getEmail</p>
-                <p>Created At: @user.getCreatedAt</p>
-                <p><button>DELETE</button></p>
-                <p><button>View Tasks</button></p>
-        }
+        <h1>Available Users in System:</h1>
+        <table border="3" style="width:70%; align-content: center; text-align: center">
+            <tr>
+                <th id="user_id">Id</th>
+                <th>Full Name</th>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Created At</th>
+                <th></th>
+            </tr>
+                @for(user <- users) {
+                    <tr>
+                        <td>@user.getId</td>
+                        <td>@user.getFullName</td>
+                        <td>@user.getUserName</td>
+                        <td>@user.getEmail</td>
+                        <td>@user.getCreatedAt</td>
+                        <td>
+                            <a href="http://localhost:9000/tasks/list/1">
+                                <button style="size: 20%">View Tasks</button>
+                            </a>
+                        </td>
+                    </tr>
+                }
+        </table>
+
+        <div style="padding-top: 50px; align-items: flex-start ">
+            <form>
+                <label for="user_id" style="padding-bottom: 5px">To Delete User's Id:</label><br>
+                <input type="number" id="user_id" name="user_id"><br>
+            </form>
+            <a href=""><button>Delete</button></a>
+        </div>
+
+        <div style="padding-top: 50px; align-items: flex-start ">
+            <a href="http://localhost:9000/users/create"><button>Create New User</button></a>
+
+            <a href="http://localhost:9000/users/edit" style="padding-left: 100px"><button>Edit User</button></a>
+        </div>
     </body>
 </html>

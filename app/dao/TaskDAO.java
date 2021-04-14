@@ -84,10 +84,11 @@ public class TaskDAO {
     public List<Task> getTaskListByOwnerId(int ownerId) {
 
         List<Task> taskList = new ArrayList();
+        String sqlStr = selectSQLStr + whereOwnerIDSQLStr + ownerId;
 
         try {
 
-            PreparedStatement ps = connection.prepareStatement(this.selectSQLStr);
+            PreparedStatement ps = connection.prepareStatement(sqlStr);
             ResultSet resultSet = ps.executeQuery();
 
             Task eachTask;
