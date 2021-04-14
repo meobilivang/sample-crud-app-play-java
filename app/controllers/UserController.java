@@ -1,9 +1,11 @@
 package controllers;
 
+import dao.UserDAO;
 import models.User;
-import play.data.Form;
-import play.data.FormFactory;
 import play.mvc.*;
+
+import java.util.List;
+import java.util.ArrayList;
 
 
 /***
@@ -12,21 +14,25 @@ import play.mvc.*;
  */
 public class UserController extends Controller {
 
-//    /**
-//     * Get an User by Id
-//     * @param id
-//     * @return
-//     */
-//    public Result get(int id) {
-//        return ok();
-//    }
-
     /**
      * Get list of users
      * @return
      */
     public Result list() {
-        return null;
+
+        try {
+
+            UserDAO userDAO = new UserDAO();
+            List<User> userList = userDAO.getUserList();
+
+            userDAO.closeConnection();
+
+            return ok(views.html.User.index.render(userList));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return internalServerError("Please try again!");
+        }
     }
 
     /**
@@ -34,15 +40,27 @@ public class UserController extends Controller {
      * @return
      */
     public Result create() {
-        return null;
+        return ok(views.html.User.create.render());
     }
 
     /**
      * Edit User
      * @return
      */
-    public Result edit() {
-        return null;
+    public Result edit(int id) {
+        try {
+
+            UserDAO userDAO = new UserDAO();
+            User editUser = userDAO.getUserById(id);
+
+            userDAO.closeConnection();
+
+            return ok(views.html.User.edit.render(editUser));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return internalServerError("Please try again!");
+        }
     }
 
 //    /**

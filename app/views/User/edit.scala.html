@@ -1,1 +1,19 @@
-@()
+@(user: User)
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Edit User</title>
+    </head>
+    <body>
+        <h1>Edit User</h1>
+        <p>@user.getId</p>
+        <p>@user.getFullName</p>
+        <form>
+            <label for="full_name">Full name:</label><br>
+            <input type="text" id="full_name" name="full_name"><br>
+            <label for="user_name">Username:</label><br>
+            <input type="text" id="user_name" name="user_name">
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>

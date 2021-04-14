@@ -63,6 +63,8 @@ public class User {
         return email;
     }
 
+    public String getCreatedAt() { return createdAt; }
+
     public void setEmail(String email) {
         this.email = email;
     }

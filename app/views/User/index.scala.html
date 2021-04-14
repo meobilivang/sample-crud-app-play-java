@@ -1,17 +1,19 @@
-@()
+@(users: List[User])
 <!DOCTYPE html>
 <html>
     <head>
-        <title>User List</title>
+        <title>Available Users in System: </title>
     </head>
     <body>
-@*        @for(user <- users){*@
-@*                <a href="#">@user.id</a>*@
-@*                <p>Name: @user.name</p>*@
-@*                <p>User Name: @user.userName</p>*@
-@*                <p>Email: @user.userEmail</p>*@
-@*                <p>Created At: @user.createdAt</p>*@
-@*                <p><button>DELETE</button></p>*@
-@*        }*@
+        @for(user <- users) {
+                <a href="#">All Users</a>
+                <p>ID: @user.getId</p>
+                <p>Name: @user.getFullName</p>
+                <p>User Name: @user.getUserName</p>
+                <p>Email: @user.getEmail</p>
+                <p>Created At: @user.getCreatedAt</p>
+                <p><button>DELETE</button></p>
+                <p><button>View Tasks</button></p>
+        }
     </body>
 </html>

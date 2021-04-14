@@ -43,6 +43,8 @@ public class Task {
         return description;
     }
 
+    public String getCreatedAt() { return createdAt; }
+
     public void setOwnerId(int ownerId) {
         this.ownerId = ownerId;
     }

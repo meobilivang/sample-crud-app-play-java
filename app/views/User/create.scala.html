@@ -1,20 +1,18 @@
-@(userForm : Form[User])
-@import helper._
-
+<!DOCTYPE html>
 <html>
     <head>
         <title>Create User</title>
     </head>
     <body>
-
         <h1>Create User</h1>
-            @helper.form(action = routes.UserController.create()){
-            @helper.inputText(userForm("name"))
-            @helper.inputText(userForm("userName"))
-            @helper.inputText(userForm("password"))
-
-            <input type="submit" value="Create User">
-        }
-
+        <form>
+            <label for="full_name">Full name:</label><br>
+            <input type="text" id="full_name" name="full_name"><br>
+            <label for="user_name">Username:</label><br>
+            <input type="text" id="user_name" name="user_name">
+            <label for="password">Password:</label><br>
+            <input type="text" id="password" name="user_name">
+            <input type="submit" value="Submit">
+        </form>
     </body>
 </html>

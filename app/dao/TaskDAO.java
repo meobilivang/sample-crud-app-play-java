@@ -81,26 +81,41 @@ public class TaskDAO {
         return searchTask;
     }
 
-    public Task getTaskByOwnerId(int ownerId) {
+    public List<Task> getTaskListByOwnerId(int ownerId) {
 
-        Task searchTask = null;
-        String sqlStr = selectSQLStr + whereOwnerIDSQLStr + ownerId;
+        List<Task> taskList = new ArrayList();
 
         try {
 
-            PreparedStatement ps = connection.prepareStatement(sqlStr);
+            PreparedStatement ps = connection.prepareStatement(this.selectSQLStr);
             ResultSet resultSet = ps.executeQuery();
 
-            if (resultSet.next()) {
-                searchTask = new Task(resultSet.getInt("id"), resultSet.getInt("owner_id"), resultSet.getString("description"));
-                searchTask.setCreatedAt(resultSet.getTime("created_at").toString());
+            Task eachTask;
+
+            int eachId;
+            int eachOwnerId;
+            String description;
+            String createdAt;
+
+            //Iterate returned rows
+            while (resultSet.next()) {
+                //Retrieve fields from rows
+                eachId = resultSet.getInt("id");
+                eachOwnerId = resultSet.getInt("owner_id");
+                description = resultSet.getString("description");
+                createdAt = resultSet.getTime("created_at").toString();
+
+                eachTask = new Task(eachId, eachOwnerId, description);
+                eachTask.setCreatedAt(createdAt);
+
+                taskList.add(eachTask);
             }
 
         } catch(SQLException e) {
             e.printStackTrace();
         }
 
-        return searchTask;
+        return taskList;
     }
 
     /**
