@@ -81,7 +81,7 @@ public class UserDAO {
      * @param newUser
      * @return
      */
-    public boolean createUser(User newUser) {
+    public boolean addUser(User newUser) {
 
         String sqlStr = "INSERT INTO user (full_name, user_name, password, email) VALUES (" + newUser.getName()  + newUser.getUserName() + newUser.getPassword() + ")";
 
@@ -109,7 +109,7 @@ public class UserDAO {
      * @param editedUser
      * @return
      */
-    public boolean updateUser(User editedUser) {
+    public boolean editUser(User editedUser) {
 
         String sqlStr = "UPDATE user SET full_name=" + editedUser.getName() + ", user_name=" + editedUser.getUserName() + ", email=" + editedUser.getEmail()  +" WHERE id=" + String.valueOf(editedUser.getId());
 

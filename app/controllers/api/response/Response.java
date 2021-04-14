@@ -1,11 +1,11 @@
 package controllers.api.response;
 
-public class ErrorResponse {
+public class Response {
 
     String description;
     String message;
 
-    public ErrorResponse(String description, String message) {
+    public Response(String description, String message) {
         this.description = description;
         this.message = message;
     }

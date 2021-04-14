@@ -84,7 +84,7 @@ public class TaskDAO {
      * @param newTask
      * @return
      */
-    public boolean createTask(Task newTask) {
+    public boolean addTask(Task newTask) {
 
         String sqlStr = "INSERT INTO task (owner_id, description) VALUES (" + newTask.getOwnerId()  + newTask.getDescription() + ")";
 
@@ -110,7 +110,7 @@ public class TaskDAO {
      * @param editedTask
      * @return
      */
-    public boolean updateTask(Task editedTask) {
+    public boolean editTask(Task editedTask) {
 
         String sqlStr = "UPDATE task SET description=" + editedTask.getDescription() +" WHERE id=" + String.valueOf(editedTask.getId());
 
