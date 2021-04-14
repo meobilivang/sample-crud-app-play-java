@@ -15,7 +15,7 @@ public class UserDAO {
     Connection connection = DB.getConnection();
 
     protected String selectSQLStr = "SELECT id, full_name, user_name, email, created_at FROM user";
-    protected String whereIDSQLStr = "WHERE id=";
+    protected String whereIDSQLStr = " WHERE id=";
 
     public List<User> getUserList() {
 
@@ -66,11 +66,14 @@ public class UserDAO {
             PreparedStatement ps = connection.prepareStatement(sqlStr);
             ResultSet resultSet = ps.executeQuery();
 
-            searchUser = new User(resultSet.getInt("id"), resultSet.getString("full_name"), resultSet.getString("user_name"), resultSet.getString("email"));
-            searchUser.setCreatedAt(resultSet.getTime("created_at").toString());
+            if (resultSet.next()) {
+                searchUser = new User(resultSet.getInt("id"), resultSet.getString("full_name"), resultSet.getString("user_name"), resultSet.getString("email"));
+                searchUser.setCreatedAt(resultSet.getTime("created_at").toString());
+            }
 
         } catch(SQLException e) {
             e.printStackTrace();
+            return null;
         }
 
         return searchUser;
@@ -83,7 +86,7 @@ public class UserDAO {
      */
     public boolean addUser(User newUser) {
 
-        String sqlStr = "INSERT INTO user (full_name, user_name, password, email) VALUES (" + newUser.getName()  + newUser.getUserName() + newUser.getPassword() + ")";
+        String sqlStr = "INSERT INTO user (full_name, user_name, password, email) VALUES ( " + "'" + newUser.getName() + "'" + ", " + "'" + newUser.getUserName() + "'" +  ", " + "'" + newUser.getPassword() + "'" + ", "  + "'" + newUser.getEmail() + "'" + ")";
 
         try {
 
@@ -151,7 +154,7 @@ public class UserDAO {
 
     public void closeConnection() {
         try {
-            connection.close();
+            this.connection.close();
         } catch(Exception e) {
             e.printStackTrace();
         }

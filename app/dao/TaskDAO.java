@@ -15,10 +15,11 @@ import java.util.List;
  */
 public class TaskDAO {
 
-    Connection connection = DB.getConnection();                     //Connection to database
+    Connection connection = DB.getConnection();                                 //Connection to database
 
     protected String selectSQLStr = "SELECT id, owner_id, description, created_at FROM task";
     protected String whereIDSQLStr = "WHERE id=";
+    protected String whereOwnerIDSQLStr = "WHERE owner_id=";
 
     public List<Task> getTaskList() {
 
@@ -68,8 +69,32 @@ public class TaskDAO {
             PreparedStatement ps = connection.prepareStatement(sqlStr);
             ResultSet resultSet = ps.executeQuery();
 
-            searchTask = new Task(resultSet.getInt("id"), resultSet.getInt("owner_id"), resultSet.getString("description"));
-            searchTask.setCreatedAt(resultSet.getTime("created_at").toString());
+            if (resultSet.next()) {
+                searchTask = new Task(resultSet.getInt("id"), resultSet.getInt("owner_id"), resultSet.getString("description"));
+                searchTask.setCreatedAt(resultSet.getTime("created_at").toString());
+            }
+
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+
+        return searchTask;
+    }
+
+    public Task getTaskByOwnerId(int ownerId) {
+
+        Task searchTask = null;
+        String sqlStr = selectSQLStr + whereOwnerIDSQLStr + ownerId;
+
+        try {
+
+            PreparedStatement ps = connection.prepareStatement(sqlStr);
+            ResultSet resultSet = ps.executeQuery();
+
+            if (resultSet.next()) {
+                searchTask = new Task(resultSet.getInt("id"), resultSet.getInt("owner_id"), resultSet.getString("description"));
+                searchTask.setCreatedAt(resultSet.getTime("created_at").toString());
+            }
 
         } catch(SQLException e) {
             e.printStackTrace();

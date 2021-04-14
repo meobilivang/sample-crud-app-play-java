@@ -32,7 +32,7 @@ public class TaskAPIController extends Controller {
 
         } catch (Exception e) {
             e.printStackTrace();
-            return internalServerError(Json.toJson(new Response("Internal  Server Error", "Please try again later!")));
+            return internalServerError(Json.toJson(new Response("Internal Server Error", "Please try again later!")));
         }
     }
 
@@ -52,7 +52,7 @@ public class TaskAPIController extends Controller {
 
         } catch (Exception e) {
             e.printStackTrace();
-            return internalServerError(Json.toJson(new Response("Internal  Server Error", "Please try again later!")));
+            return internalServerError(Json.toJson(new Response("Internal Server Error", "Please try again later!")));
         }
     }
 
@@ -77,7 +77,7 @@ public class TaskAPIController extends Controller {
 
         } catch (Exception e) {
             e.printStackTrace();
-            return internalServerError(Json.toJson(new Response("Internal  Server Error", "Please try again later!")));
+            return internalServerError(Json.toJson(new Response("Internal Server Error", "Please try again later!")));
         }
     }
 
@@ -103,7 +103,7 @@ public class TaskAPIController extends Controller {
 
         } catch (Exception e) {
             e.printStackTrace();
-            return internalServerError(Json.toJson(new Response("Internal  Server Error", "Please try again later!")));
+            return internalServerError(Json.toJson(new Response("Internal Server Error", "Please try again later!")));
         }
     }
 
@@ -126,7 +126,7 @@ public class TaskAPIController extends Controller {
 
         } catch (Exception e) {
             e.printStackTrace();
-            return internalServerError(Json.toJson(new Response("Internal  Server Error", "Please try again later!")));
+            return internalServerError(Json.toJson(new Response("Internal Server Error", "Please try again later!")));
         }
     }
 
