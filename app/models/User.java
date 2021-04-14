@@ -45,7 +45,7 @@ public class User {
         this.email = email;
     }
 
-    public String getName() {
+    public String getFullName() {
         return fullName;
     }
 

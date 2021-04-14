@@ -32,7 +32,7 @@ DELETE /api/users/:id                   controllers.api.UserAPIController.delete
 GET /api/tasks                          controllers.api.TaskAPIController.list()
 GET /api/tasks/:id                      controllers.api.TaskAPIController.get(id: Int)
 POST /api/tasks/add                     controllers.api.TaskAPIController.add()
-PUT /api/tasks/update                   controllers.api.TaskAPIController.edit()
+PUT /api/tasks/edit                     controllers.api.TaskAPIController.edit()
 DELETE /api/tasks/:id                   controllers.api.TaskAPIController.delete(id: Int)
 
 

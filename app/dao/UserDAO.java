@@ -86,7 +86,7 @@ public class UserDAO {
      */
     public boolean addUser(User newUser) {
 
-        String sqlStr = "INSERT INTO user (full_name, user_name, password, email) VALUES ( " + "'" + newUser.getName() + "'" + ", " + "'" + newUser.getUserName() + "'" +  ", " + "'" + newUser.getPassword() + "'" + ", "  + "'" + newUser.getEmail() + "'" + ")";
+        String sqlStr = "INSERT INTO user (full_name, user_name, password, email) VALUES ( " + "'" + newUser.getFullName() + "'" + ", " + "'" + newUser.getUserName() + "'" +  ", " + "'" + newUser.getPassword() + "'" + ", "  + "'" + newUser.getEmail() + "'" + ")";
 
         try {
 
@@ -114,7 +114,7 @@ public class UserDAO {
      */
     public boolean editUser(User editedUser) {
 
-        String sqlStr = "UPDATE user SET full_name=" + editedUser.getName() + ", user_name=" + editedUser.getUserName() + ", email=" + editedUser.getEmail()  +" WHERE id=" + String.valueOf(editedUser.getId());
+        String sqlStr = "UPDATE user SET full_name=" + "'" + editedUser.getFullName() + "'" + ", user_name=" + "'" + editedUser.getUserName() + "'" + ", email=" + "'" + editedUser.getEmail() + "'"  +" WHERE id=" + String.valueOf(editedUser.getId());
 
         try {
 

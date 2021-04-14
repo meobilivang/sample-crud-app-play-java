@@ -18,8 +18,8 @@ public class TaskDAO {
     Connection connection = DB.getConnection();                                 //Connection to database
 
     protected String selectSQLStr = "SELECT id, owner_id, description, created_at FROM task";
-    protected String whereIDSQLStr = "WHERE id=";
-    protected String whereOwnerIDSQLStr = "WHERE owner_id=";
+    protected String whereIDSQLStr = " WHERE id=";
+    protected String whereOwnerIDSQLStr = " WHERE owner_id=";
 
     public List<Task> getTaskList() {
 
@@ -111,7 +111,7 @@ public class TaskDAO {
      */
     public boolean addTask(Task newTask) {
 
-        String sqlStr = "INSERT INTO task (owner_id, description) VALUES (" + newTask.getOwnerId()  + newTask.getDescription() + ")";
+        String sqlStr = "INSERT INTO task (owner_id, description) VALUES (" + newTask.getOwnerId()  + ", " + "'" + newTask.getDescription() + "'" + ")";
 
         try {
 
@@ -137,7 +137,7 @@ public class TaskDAO {
      */
     public boolean editTask(Task editedTask) {
 
-        String sqlStr = "UPDATE task SET description=" + editedTask.getDescription() +" WHERE id=" + String.valueOf(editedTask.getId());
+        String sqlStr = "UPDATE task SET description=" + "'" + editedTask.getDescription() + "'" +" WHERE id=" + String.valueOf(editedTask.getId());
 
         try {
 
